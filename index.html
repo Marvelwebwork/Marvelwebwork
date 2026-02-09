@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Marvel Mission Control</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <div>
+          <p class="eyebrow">Marvel Mission Control</p>
+          <h1>Track heroic tasks, right here.</h1>
+          <p class="subtitle">Plan missions, set priorities, and celebrate completed wins.</p>
+        </div>
+        <div class="status-card">
+          <h2>Today's Momentum</h2>
+          <p class="status-card__stat" id="missionCount">0</p>
+          <p class="status-card__label">Active missions</p>
+        </div>
+      </header>
+
+      <section class="composer">
+        <form id="missionForm" class="composer__form">
+          <div class="composer__field">
+            <label for="missionTitle">Mission</label>
+            <input
+              id="missionTitle"
+              name="missionTitle"
+              type="text"
+              placeholder="E.g. Draft the next product update"
+              required
+            />
+          </div>
+          <div class="composer__field">
+            <label for="missionPriority">Priority</label>
+            <select id="missionPriority" name="missionPriority">
+              <option value="High">High</option>
+              <option value="Medium" selected>Medium</option>
+              <option value="Low">Low</option>
+            </select>
+          </div>
+          <div class="composer__field">
+            <label for="missionDue">Due</label>
+            <input id="missionDue" name="missionDue" type="date" />
+          </div>
+          <button type="submit" class="button button--primary">Add mission</button>
+        </form>
+      </section>
+
+      <section class="board">
+        <div class="board__header">
+          <h2>Mission Board</h2>
+          <div class="filters">
+            <button class="chip chip--active" data-filter="all" type="button">All</button>
+            <button class="chip" data-filter="active" type="button">Active</button>
+            <button class="chip" data-filter="completed" type="button">Completed</button>
+          </div>
+        </div>
+        <div class="board__content" id="missionList"></div>
+      </section>
+
+      <section class="insights">
+        <div>
+          <h2>Insights</h2>
+          <p class="muted">Stay on top of your day with quick stats.</p>
+        </div>
+        <div class="insights__grid">
+          <div class="insight-card">
+            <p class="insight-card__label">Completed</p>
+            <p class="insight-card__value" id="completedCount">0</p>
+          </div>
+          <div class="insight-card">
+            <p class="insight-card__label">High priority</p>
+            <p class="insight-card__value" id="highPriorityCount">0</p>
+          </div>
+          <div class="insight-card">
+            <p class="insight-card__label">Next due date</p>
+            <p class="insight-card__value" id="nextDueDate">—</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
